@@ -1,6 +1,11 @@
+import Dashboard from '@/components/Dashboard';
+import Navbar from '@/components/Navbar';
 
 export default function Home() {
   return (
-    <h1 className="text-2xl text-teal-500">Welcome to Next.js!</h1>
+    <>
+      <Navbar />
+      <Dashboard />
+    </>
   );
 }
