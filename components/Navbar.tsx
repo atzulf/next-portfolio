@@ -54,14 +54,10 @@ const Navbar = () => {
                     <li>
                         <a href="#contact" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">Contact</a>
                     </li>
-                    
-                    {/* Theme Toggle usually handles its own styling, but ensured alignment here */}
-                    <div className="flex items-center">
-                        <ToggleTheme />
-                    </div>
                 </ul>
 
-                <div className="social hidden md:block">
+                <div className="social hidden md:flex items-center gap-4">
+                    <ToggleTheme />
                     <a href="#contact" className="bg-sky-500 px-5 py-2 rounded-full text-white font-bold hover:bg-sky-600 transition-all">
                         Contact Me
                     </a>
