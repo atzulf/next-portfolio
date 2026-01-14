@@ -22,24 +22,22 @@ const Navbar = () => {
     }, []);
 
     const scrollActive = scroll 
-        ? "py-4 bg-white shadow-md dark:bg-slate-900 dark:shadow-slate-800" 
-        : "py-6 bg-transparent";
+        ? "py-4 bg-white shadow-md dark:bg-slate-900 dark:shadow-slate-700" 
+        : "py-6 bg-transparent shadow-sm dark:shadow-slate-700";
 
     return (
         <div className={`navbar fixed top-0 left-0 right-0 w-full transition-all z-50 ${scrollActive}`}>
             <div className="container mx-auto px-8 md:px-8 lg:px-24 flex items-center justify-between">
                 <div className="logo">
-                    {/* FIX 2: Added dark mode text color */}
                     <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Zoulv</h1>
                 </div>
 
                 <div className="hamburger md:hidden cursor-pointer text-slate-900 dark:text-white" onClick={handleClick}>
-                    {/* FIX 3: Removed inline styles. Now it uses the parent div's text color class */}
                     {click ? <FaTimes size={20} /> : <FaBars size={20} />}
                 </div>
 
                 <ul className={click 
-                    ? "flex flex-col items-center gap-6 fixed left-0 top-16 w-full py-8 z-50 font-bold transition-all shadow-lg bg-white dark:bg-slate-900 dark:text-white shadow-slate-300 dark:shadow-none" 
+                    ? "flex flex-col items-center gap-6 fixed left-0 top-16 w-full py-8 z-50 font-bold transition-all shadow-lg bg-white dark:bg-slate-900 dark:text-white shadow-slate-100 dark:shadow-blue-800" 
                     : "hidden md:flex md:gap-12 lg:gap-16 text-slate-900 dark:text-white"
                 }>
                     <li>
