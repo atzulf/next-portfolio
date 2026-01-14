@@ -3,6 +3,7 @@
 import React from 'react'
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { motion } from "framer-motion"; 
+import Image from 'next/image';
 
 const Dashboard = () => {
   const [text] = useTypewriter({
@@ -116,19 +117,25 @@ const Dashboard = () => {
             
             // TAMBAHAN: Reset rotasi saat hover
             whileHover={{ 
-              rotate: 0, // Kembali lurus (0 derajat)
+              rotate: 0.2, // Kembali lurus (0 derajat)
               scale: 1.02, // (Opsional) Sedikit membesar biar makin keren
             }}
             
             // Mengatur kehalusan transisi hover
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            transition={{ type: "spring", stiffness: 300, damping: 10 }}
           >
             <motion.div 
               animate={floatAnimation} 
-              className="w-full max-w-sm aspect-3/4 bg-linear-to-br from-sky-400 to-blue-600 rounded-2xl shadow-2xl flex items-center justify-center relative z-10 cursor-pointer"
+              className="w-full max-w-md aspect-square bg-linear-to-br from-sky-400 to-blue-600 rounded-[2.5rem] shadow-2xl flex items-center justify-center relative z-10 cursor-pointer"
             >
-                <div className="absolute -inset-1 bg-sky-500/20 blur-xl rounded-2xl -z-10"></div>
-                
+                <div className="absolute -inset-1 bg-sky-500/20 blur-xl rounded-2xl -z-5"></div>
+                <Image 
+                  src="/mapoto.jpeg"  
+                  alt="Ataka Dzulfikar"
+                  fill 
+                  className="object-cover"
+                  priority 
+                />
                 <p className="text-white text-xl font-bold tracking-wider">Photo Placement</p>
             </motion.div>
           </motion.div>
