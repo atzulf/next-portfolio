@@ -126,7 +126,7 @@ const Dashboard = () => {
           >
             <motion.div 
               animate={floatAnimation} 
-              className="w-full max-w-md aspect-square bg-linear-to-br from-sky-400 to-blue-600 rounded-[2.5rem] shadow-2xl flex items-center justify-center relative z-10 cursor-pointer"
+              className="w-full max-w-md aspect-square bg-linear-to-br from-sky-400 to-blue-600 rounded-3xl shadow-2xl flex items-center justify-center relative z-10 cursor-pointer overflow-hidden"
             >
                 <div className="absolute -inset-1 bg-sky-500/20 blur-xl rounded-2xl -z-5"></div>
                 <Image 
