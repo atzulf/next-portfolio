@@ -4,62 +4,19 @@ import React from 'react'
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { motion } from "framer-motion"; 
 import Image from 'next/image';
+import { 
+  containerVariants, 
+  itemVariants, 
+  imageVariants, 
+  floatAnimation, 
+  typewriterConfig 
+} from '@/lib/animations';
 
 const Dashboard = () => {
-  const [text] = useTypewriter({
-    words: [
-      "UI UX Design Enthusiast",
-      "Android App Development",
-      "Front End Development",
-    ],
-    loop: true,
-    typeSpeed: 50,
-    deleteSpeed: 30,
-    delaySpeed: 1000,
-  });
-
-  
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.2, 
-        delayChildren: 0.3 
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 }, 
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { type: "spring" as const, stiffness: 50 } 
-    }
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, x: 50, rotate: 0 },
-    visible: { 
-      opacity: 1, 
-      x: 0, 
-      rotate: 3, 
-      transition: { duration: 0.8, type: "spring" as const } 
-    }
-  };
-
-  const floatAnimation = {
-    y: [0, -15, 0], 
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut" as const
-    }
-  };
+  const [text] = useTypewriter(typewriterConfig);
 
   return (
-    <div className='home min-h-screen flex items-center justify-center bg-white dark:bg-slate-900 transition-colors overflow-hidden'> 
+    <div id="dashboard" className='home min-h-screen flex items-center justify-center bg-white dark:bg-slate-900 transition-colors overflow-hidden'> 
       <div className="container mx-auto px-4 md:px-16 lg:px-24 max-w-7-xl">
         
         <div className="hero grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
@@ -94,15 +51,15 @@ const Dashboard = () => {
               variants={itemVariants}
               className="text-base text-gray-600 dark:text-gray-300 mb-8 text-justify leading-relaxed"
             >
-              As a passionate about UI UX Design and Mobile Development, I focus on crafting innovative and impactful solutions for the digital world.
+              As a passionate about UI UX Design, Frontend Web Development and Mobile Development, I focus on crafting innovative and impactful solutions for the digital world.
             </motion.p>
 
             <motion.div variants={itemVariants}>
               <motion.a
-                href="#about"
+                href="/about"
                 whileHover={{ scale: 1.05 }} 
                 whileTap={{ scale: 0.95 }}  
-                className="inline-flex items-center text-white bg-sky-500 px-8 py-3 rounded-full font-medium shadow-lg hover:bg-sky-600 hover:shadow-sky-500/30 transition-colors"
+                className="inline-flex items-center text-white bg-sky-500 px-8 py-3 rounded-full font-medium shadow-lg hover:bg-sky-600 hover:shadow-sky-500/30 transition-colors cursor-pointer"
               >
                 About Me <i className="ri-eye-line ms-2"></i>
               </motion.a>
