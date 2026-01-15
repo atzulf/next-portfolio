@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa';
 import ToggleTheme from '@/components/ToggleTheme';
+import Link from 'next/link';
 
 const Navbar = () => {
     const [click, setClick] = useState(false);
@@ -41,24 +42,24 @@ const Navbar = () => {
                     : "hidden md:flex md:gap-12 lg:gap-16 text-slate-900 dark:text-white"
                 }>
                     <li>
-                        <a href="#home" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">Home</a>
+                        <Link href="/" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">Home</Link>
                     </li>
                     <li>
-                        <a href="#about" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">About Me</a>
+                        <Link href="/about" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">About Me</Link>
                     </li>
                     <li>
-                        <a href="#project" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">Project</a>
+                        <Link href="/experience" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">Experience</Link>
                     </li>
                     <li>
-                        <a href="#contact" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">Contact</a>
+                        <Link href="/project" className="font-medium opacity-75 hover:opacity-100 hover:text-sky-500 transition-colors">Project</Link>
                     </li>
                 </ul>
 
                 <div className="social hidden md:flex items-center gap-4">
                     <ToggleTheme />
-                    <a href="#contact" className="bg-sky-500 px-5 py-2 rounded-full text-white font-bold hover:bg-sky-600 transition-all">
+                    <Link href="/contact" className="bg-sky-500 px-5 py-2 rounded-full text-white font-bold hover:bg-sky-600 transition-all">
                         Contact Me
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>
