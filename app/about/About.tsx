@@ -4,7 +4,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const About = () => {
-  // Data Skills (Bisa ditambah/dikurangi sesuai keahlianmu)
   const skills = [
     { name: "React / Next.js", level: "Advanced" },
     { name: "Laravel / PHP", level: "Advanced" },
@@ -16,14 +15,12 @@ const About = () => {
     { name: "Framer Motion", level: "Beginner" },
   ];
 
-  // Data Statistik
   const stats = [
     { label: "Years Experience", value: "2+" },
     { label: "Projects Completed", value: "15+" },
     { label: "Happy Clients", value: "10+" },
   ];
 
-  // Variabel Animasi (Sama dengan Dashboard agar konsisten)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,15 +34,14 @@ const About = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 50 }
+      transition: { type: "spring" as const, stiffness: 50 }
     }
   };
 
   return (
     <div id="about" className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900 transition-colors py-20">
       <div className="container mx-auto px-4 md:px-16 lg:px-24 max-w-7xl">
-        
-        {/* Header Section */}
+
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,10 +55,8 @@ const About = () => {
           <div className="w-20 h-1 bg-sky-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Kolom Kiri: Deskripsi & Stats */}
+        
           <motion.div 
             variants={containerVariants}
             initial="hidden"
@@ -70,7 +64,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <motion.h3 variants={itemVariants} className="text-2xl font-bold text-slate-800 dark:text-gray-100 mb-4">
-              I'm a Developer with a passion for <span className="text-sky-500">Design</span>.
+              I&apos;m a Developer with a passion for <span className="text-sky-500">Design</span>.
             </motion.h3>
             
             <motion.p variants={itemVariants} className="text-gray-600 dark:text-gray-300 text-justify leading-relaxed mb-6">
@@ -78,10 +72,9 @@ const About = () => {
             </motion.p>
             
             <motion.p variants={itemVariants} className="text-gray-600 dark:text-gray-300 text-justify leading-relaxed mb-8">
-              Fast-forward to today, I've had the privilege of working on various web applications using modern technologies like <b>Laravel</b> and <b>React</b>. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
+              Fast-forward to today, I&apos;ve had the privilege of working on various web applications using modern technologies like <b>Laravel</b> and <b>React</b>. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
             </motion.p>
 
-            {/* Statistik Cards */}
             <motion.div variants={itemVariants} className="grid grid-cols-3 gap-4 mb-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-md border-b-4 border-sky-500 hover:-translate-y-1 transition-transform duration-300">
@@ -91,7 +84,6 @@ const About = () => {
               ))}
             </motion.div>
 
-            {/* Tombol Download CV */}
             <motion.div variants={itemVariants}>
               <a 
                 href="/cv.pdf" // Ganti dengan link CV kamu
@@ -103,7 +95,6 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Kolom Kanan: Skills Tags */}
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -127,7 +118,6 @@ const About = () => {
               ))}
             </div>
 
-            {/* Opsional: Tambahan info visual seperti koding activity atau ilustrasi */}
             <div className="mt-8 pt-8 border-t border-gray-200 dark:border-slate-700">
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Currently working on:</p>
                 <div className="flex items-center gap-4 p-4 bg-sky-50 dark:bg-slate-900/50 rounded-xl border border-sky-100 dark:border-slate-700">
