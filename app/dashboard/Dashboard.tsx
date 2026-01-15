@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   return (
     <div id="dashboard" className='home min-h-screen flex items-center justify-center bg-white dark:bg-slate-900 transition-colors overflow-hidden'> 
-      <div className="container mx-auto px-4 md:px-16 lg:px-24 max-w-7-xl">
+      <div className="container mx-auto px-4 md:px-16 lg:px-24 max-w-8xl">
         
         <div className="hero grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           
@@ -71,14 +71,12 @@ const Dashboard = () => {
             initial="hidden"
             animate="visible"
             variants={imageVariants} 
-            
-            // TAMBAHAN: Reset rotasi saat hover
+
             whileHover={{ 
-              rotate: 0.2, // Kembali lurus (0 derajat)
-              scale: 1.02, // (Opsional) Sedikit membesar biar makin keren
+              rotate: 0.2,
+              scale: 1.02, 
             }}
-            
-            // Mengatur kehalusan transisi hover
+ 
             transition={{ type: "spring", stiffness: 300, damping: 10 }}
           >
             <motion.div 
