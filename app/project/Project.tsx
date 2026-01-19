@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { projects } from '@/lib/project';
-import { projectContainerVariants, projectCardVariants, headerVariants, buttonVariants } from '@/lib/animations';
+import { projectContainerVariants, projectCardVariants, projectHeaderVariants, buttonVariants } from '@/lib/animations';
 
 const Project = () => {
 
@@ -14,7 +14,7 @@ const Project = () => {
         
         {/* Header */}
         <motion.div 
-          variants={headerVariants}
+          variants={projectHeaderVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}
