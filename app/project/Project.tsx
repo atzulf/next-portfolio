@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { projects } from '@/lib/project';
-import { projectContainerVariants, projectCardVariants, headerVariants, buttonVariants } from '@/lib/animations';
+
+type ProjectType = typeof projects[0];
+import { projectContainerVariants, projectCardVariants, buttonVariants, projectHeaderVariants } from '@/lib/animations';
 
 const Project = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectType | null>(null);
@@ -192,7 +194,7 @@ const Project = () => {
           {selectedProject && (
             <>
               {/* Modal Header with Gradient */}
-              <div className="relative bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-6">
+              <div className="relative bg-linear-to-r from-sky-500 to-blue-600 px-8 py-6">
                 <button 
                   onClick={closeModal}
                   className="absolute top-4 right-4 btn btn-sm btn-circle btn-ghost text-white hover:bg-white/20"
@@ -219,7 +221,7 @@ const Project = () => {
               <div className="p-8">
                 {/* Project Image */}
                 <div className="relative h-72 rounded-xl overflow-hidden mb-8 shadow-lg">
-                  <div className="absolute inset-0 bg-gradient-to-br from-sky-500 via-blue-500 to-indigo-600">
+                  <div className="absolute inset-0 bg-linear-to-br from-sky-500 via-blue-500 to-indigo-600">
                     <div className="absolute inset-0 opacity-20">
                       <div className="absolute top-8 left-8 w-32 h-32 border-2 border-white/30 rounded-full animate-pulse"></div>
                       <div className="absolute bottom-8 right-8 w-40 h-40 border-2 border-white/20 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
@@ -255,7 +257,7 @@ const Project = () => {
                     {selectedProject.tags.map((tag, idx) => (
                       <span 
                         key={idx} 
-                        className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-sky-50 to-blue-50 dark:from-sky-900/30 dark:to-blue-900/30 text-sky-600 dark:text-sky-400 rounded-lg border-2 border-sky-200 dark:border-sky-800 hover:border-sky-400 dark:hover:border-sky-600 transition-colors shadow-sm"
+                        className="px-5 py-2.5 text-sm font-semibold bg-linear-to-r from-sky-50 to-blue-50 dark:from-sky-900/30 dark:to-blue-900/30 text-sky-600 dark:text-sky-400 rounded-lg border-2 border-sky-200 dark:border-sky-800 hover:border-sky-400 dark:hover:border-sky-600 transition-colors shadow-sm"
                       >
                         {tag}
                       </span>
@@ -269,7 +271,7 @@ const Project = () => {
                     href={selectedProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-lg flex-1 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white border-0 gap-2 shadow-lg hover:shadow-xl transition-all"
+                    className="btn btn-lg flex-1 bg-linear-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white border-0 gap-2 shadow-lg hover:shadow-xl transition-all"
                   >
                     <i className="ri-github-line text-xl"></i>
                     View Source Code
