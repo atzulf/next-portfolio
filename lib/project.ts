@@ -79,7 +79,7 @@ export const projects: Project[] = [
         title: "UNYCraft UI Website Design",
         description: "Create a UNYCraft UI Design Website Figma for software project management course",
         image: "/uiunycraft.png",
-        tags: ["FIg", "Room Database", "MVVM"],
+        tags: ["Figma", "UI Design", "UX Design"],
         githubUrl: "https://www.figma.com/design/6lUstHPeO1N70W8TDkUMQq/UNYCraft-Market?node-id=0-1&t=mSwLxfcHIynvmKo7-1",
         featured: false
     },
