@@ -60,25 +60,16 @@ const Project = () => {
                   </div>
                   
                   {/* Uncomment when you have images */}
-                  {/* <Image
+                  <Image  
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  /> */}
+                  />
                   
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <motion.a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="btn btn-circle btn-primary btn-sm"
-                    >
-                      <i className="ri-external-link-line text-lg"></i>
-                    </motion.a>
+                    
                     <motion.a
                       href={project.githubUrl}
                       target="_blank"
