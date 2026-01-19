@@ -3,87 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { projects } from '@/lib/project';
+import { projectContainerVariants, projectCardVariants, projectHeaderVariants, buttonVariants } from '@/lib/animations';
 
 const Project = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce platform built with Next.js and Laravel API. Features include product management, shopping cart, and payment integration.",
-      image: "/projects/ecommerce.jpg",
-      tags: ["Next.js", "Laravel", "MySQL"],
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates and drag-and-drop functionality.",
-      image: "/projects/taskapp.jpg",
-      tags: ["React", "Node.js", "MongoDB"],
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: false
-    },
-    {
-      id: 3,
-      title: "Portfolio Website",
-      description: "Modern portfolio website with smooth animations, dark mode support, and responsive design.",
-      image: "/projects/portfolio.jpg",
-      tags: ["Next.js", "Tailwind", "Framer"],
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: true
-    },
-    {
-      id: 4,
-      title: "Social Media Dashboard",
-      description: "Analytics dashboard for social media metrics with interactive charts and data visualization.",
-      image: "/projects/dashboard.jpg",
-      tags: ["React", "Chart.js", "API"],
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: false
-    },
-    {
-      id: 5,
-      title: "Weather App",
-      description: "Real-time weather application with location-based forecasts and interactive maps.",
-      image: "/projects/weather.jpg",
-      tags: ["React", "Weather API", "CSS"],
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: false
-    },
-    {
-      id: 6,
-      title: "Blog CMS",
-      description: "Content management system for blogging with markdown support and SEO optimization.",
-      image: "/projects/blog.jpg",
-      tags: ["Laravel", "Vue.js", "MySQL"],
-      demoUrl: "#",
-      githubUrl: "#",
-      featured: true
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring" as const, stiffness: 100, damping: 12 }
-    }
-  };
 
   return (
     <div id="project" className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors py-20">
@@ -91,10 +14,10 @@ const Project = () => {
         
         {/* Header */}
         <motion.div 
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={projectHeaderVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: false }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
@@ -108,7 +31,7 @@ const Project = () => {
 
         {/* Projects Grid */}
         <motion.div 
-          variants={containerVariants}
+          variants={projectContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}
@@ -117,7 +40,7 @@ const Project = () => {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              variants={cardVariants}
+              variants={projectCardVariants}
               whileHover={{ y: -12, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
               className="group"
@@ -233,10 +156,10 @@ const Project = () => {
 
         {/* View More Button */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={buttonVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: false }}
-          transition={{ delay: 0.5 }}
           className="text-center mt-16"
         >
           <motion.a
