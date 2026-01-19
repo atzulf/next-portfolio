@@ -50,3 +50,40 @@ export const typewriterConfig = {
     deleteSpeed: 30,
     delaySpeed: 1000,
 };
+
+// Animation variants for Project component
+
+export const projectContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.15 }
+    }
+};
+
+export const projectCardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { type: "spring" as const, stiffness: 100, damping: 12 }
+    }
+};
+
+export const headerVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { duration: 0.6 }
+    }
+};
+
+export const buttonVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+        opacity: 1, 
+        y: 0,
+        transition: { delay: 0.5 }
+    }
+};
