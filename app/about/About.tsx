@@ -39,11 +39,11 @@ const About = () => {
             </motion.h3>
             
             <motion.p variants={itemVariants} className="text-gray-600 dark:text-gray-300 text-justify leading-relaxed mb-6">
-              Hello! My name is Ataka Dzulfikar. I enjoy creating things that live on the internet. My interest in web development started back when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS is pretty fun!
+              Hello! My Name is <strong className="font-bold text-slate-900 dark:text-white">Ataka Dzulfikar</strong>. I&apos;m an Information Technology Student at Universitas Negeri Yogyakarta. While I have a background in Mobile Development, my current passion lies in <strong className="font-bold text-sky-500">Graphic & UI/UX Design</strong> as well as <strong className="font-bold text-sky-500">Web Development</strong>. I specialize in building modern, responsive web applications using <strong className="font-bold text-sky-500">React</strong> and <strong className="font-bold text-sky-500">Next.js</strong>.
             </motion.p>
-            
+
             <motion.p variants={itemVariants} className="text-gray-600 dark:text-gray-300 text-justify leading-relaxed mb-8">
-              Fast-forward to today, I&apos;ve had the privilege of working on various web applications using modern technologies like <b>Laravel</b> and <b>React</b>. My main focus these days is building accessible, inclusive products.
+              I enjoy solving complex problems through creative solutions. Whether it&apos;s designing user-friendly interfaces or developing robust web platforms, my goal is to deliver exceptional results that exceed expectations.
             </motion.p>
 
             <motion.div variants={itemVariants} className="grid grid-cols-3 gap-4 mb-8">
@@ -76,9 +76,9 @@ const About = () => {
 
             <div className="relative w-full max-w-sm aspect-4/5 rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-all duration-300 border-4 border-white dark:border-slate-800">
                 <Image 
-                  src="/about-photo.jpg" 
-                  alt="About Ataka"
                   fill
+                  src="/mapotoo.jpeg" 
+                  alt="About Ataka"
                   className="object-cover"
                 />
             </div>
