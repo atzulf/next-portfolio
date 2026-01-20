@@ -16,14 +16,13 @@ const Project = () => {
         <motion.div 
           variants={projectHeaderVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
+          animate="visible"
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
             My <span className="text-sky-500">Projects</span>
           </h2>
-          <div className="w-24 h-1.5 bg-linear-to-r from-sky-500 to-blue-600 mx-auto rounded-full mb-6"></div>
+          <div className="w-20 h-1 bg-linear-to-r from-sky-500 to-blue-600 mx-auto rounded-full mb-6"></div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
             Explore my latest work showcasing creative solutions and technical expertise
           </p>
@@ -33,8 +32,7 @@ const Project = () => {
         <motion.div 
           variants={projectContainerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
+          animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {projects.map((project) => (
@@ -85,8 +83,8 @@ const Project = () => {
                   {/* Featured Badge */}
                   {project.featured && (
                     <div className="absolute top-4 right-4">
-                      <span className="badge badge-warning gap-1 shadow-lg">
-                        <i className="ri-star-fill text-xs"></i>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold bg-sky-700 text-white rounded-full shadow-lg border-2 border-sky-900">
+                        <i className="ri-star-fill"></i>
                         Featured
                       </span>
                     </div>
@@ -140,8 +138,7 @@ const Project = () => {
         <motion.div 
           variants={buttonVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
+          animate="visible"
           className="text-center mt-16"
         >
           <motion.a
