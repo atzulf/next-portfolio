@@ -1,4 +1,3 @@
-// Project data for Portfolio
 
 export interface Project {
     id: number;
@@ -28,14 +27,14 @@ export const projects: Project[] = [
         tags: ["Python", "Streamlit", "Machine Learning","Web App"],
         githubUrl: "https://github.com/atzulf/insectdetection",
         featured: true
-    },
+    },  
     {
         id: 3,
-        title: "Course Story App 1 Android",
-        description: "Creating an Android Intermediate 1 Course Story Application that uses the Auth API and user upload features using the gallery and camera.",
-        image: "/intermediate1.png",
-        tags: ["Kotlin", "Retrofit", "MVVM","Camera"],
-        githubUrl: "https://github.com/atzulf/course_story",
+        title: "Portfolio Website",
+        description: "Creating a Portfolio Website using NextJS 13 with TailwindCSS for styling and Framer Motion for animation.",
+        image: "/portfolio.png",
+        tags: ["TypeScript", "NextJS", "Framer Motion", "TailwindCSS"],
+        githubUrl: "https://github.com/atzulf/next-portfolio",
         featured: true
     },
     {
@@ -49,12 +48,12 @@ export const projects: Project[] = [
     },
     {
         id: 5,
-        title: "Crawling Data Twitter with Streamlit",
-        description: "Creating a Twitter Data Crawling Website using Streamlit for Web Application project.",
-        image: "/crawlingtwitter.png",
-        tags: ["Python", "Streamlit", "Web Scraping","API"],
-        githubUrl: "https://github.com/atzulf/Crawlingdatatwitter",
-        featured: false
+        title: "Notes App MERN",
+        description: "Creating a Notes App using the MERN stack (MongoDB, Express, React, Node.js) for managing personal notes.",
+        image: "/mern.png",
+        tags: ["MongoDB", "Express", "React", "Node.js"],
+        githubUrl: "https://github.com/atzulf/mern",
+        featured: true
     },
     {
         id: 6,
@@ -63,7 +62,7 @@ export const projects: Project[] = [
         image: "/personaway.png",
         tags: ["Kotlin", "Retrofit", "Machine Learning"],
         githubUrl: "https://github.com/PersonaWay/Mobile-Development",
-        featured: true
+        featured: false
     },
     {
         id: 7,
@@ -85,38 +84,38 @@ export const projects: Project[] = [
     },
     {
         id: 9,
-        title: "Personal Portfolio Website",
-        description: "Creating a Personal Portfolio Website using ReactJS and NextJS to showcase my projects and skills.",
-        image: "/portfolio.png",
-        tags: ["ReactJS", "NextJS", "TypeScript","TailwindCSS"],
-        githubUrl: "https://github.com/atzulf/portfolio",
+        title: "EcoFash App Design",
+        description: "AI application with AR to support sustainable fashion by utilizing environmentally friendly product recycling with educational features, donations, IoT monitoring, and a marketplace.",
+        image: "/ecofash.png",
+        tags: ["Figma", "UI Design", "UX Design"],
+        githubUrl: "https://www.figma.com/design/q0pmlbYM9L2wiyUx1q7kld/EcoFash?node-id=0-1&t=DrUKX6u1p88m15LF-1",
         featured: true
     },
     {
         id: 10,
-        title: "Simple Chat Application",
-        description: "Creating a simple chat application using ReactJS and Firebase for real-time messaging features.",
-        image: "/simplechat.png",
-        tags: ["ReactJS", "Firebase", "Real-time"],
-        githubUrl: "https://github.com/atzulf/simplechat",
-        featured: true
+        title: "OceanCue App Design",
+        description: "Application with Internet of Things (IoT)-based smart marine navigation and exploration features that monitors oceanographic data such as sea water temperature, pH, and dissolved oxygen (DO) levels in real time",
+        image: "/oceancue.png",
+        tags: ["Figma", "UI Design", "UX Design"],
+        githubUrl: "https://www.figma.com/design/JEzWmdeiUYddhxhdbVLGFg/OceanCue?node-id=0-1&t=axRTrNVK4kyht7S6-1",
+        featured: false
     },
     {
         id: 11,
-        title: "Simple Chat Application",
+        title: "MindGarden App",
         description: "Creating a simple chat application using ReactJS and Firebase for real-time messaging features.",
-        image: "/simplechat.png",
-        tags: ["ReactJS", "Firebase", "Real-time"],
-        githubUrl: "https://github.com/atzulf/simplechat",
+        image: "/mindgarden.png",
+        tags: ["Kotlin", "Firebase", "Machine Learning"],
+        githubUrl: "https://github.com/MindGardenApp",
         featured: true
     },
     {
         id: 12,
-        title: "Simple Chat Application",
-        description: "Creating a simple chat application using ReactJS and Firebase for real-time messaging features.",
-        image: "/simplechat.png",
-        tags: ["ReactJS", "Firebase", "Real-time"],
-        githubUrl: "https://github.com/atzulf/simplechat",
-        featured: true
+        title: "Admin Dashboard Filament",
+        description: "Creating a Admin Dashboard using Filament PHP Laravel for simple project management.",
+        image: "/filament.png",
+        tags: ["PHP", "Laravel", "Filament"],
+        githubUrl: "https://github.com/atzulf/admin-dashboard",
+        featured: false
     },
 ];
