@@ -1,12 +1,30 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { projects } from '@/lib/project';
 import { projectContainerVariants, projectCardVariants, projectHeaderVariants, buttonVariants } from '@/lib/animations';
 
 const Project = () => {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Define main categories
+  const categories = ['All', 'Mobile Dev', 'Website Dev', 'UI UX'];
+
+  // Define category mappings
+  const categoryMapping: Record<string, string[]> = {
+    'Mobile Dev': ['Kotlin', 'Firebase', 'MVVM', 'Retrofit', 'Google Maps', 'Paging 3'],
+    'Website Dev': ['TypeScript', 'NextJS', 'React', 'Node.js', 'MongoDB', 'Express', 'TailwindCSS', 'Framer Motion', 'Python', 'Streamlit', 'Web App', 'PHP', 'Laravel', 'Filament'],
+    'UI UX': ['Figma', 'UI Design', 'UX Design']
+  };
+
+  // Filter projects based on selected category
+  const filteredProjects = selectedCategory === 'All' 
+    ? projects 
+    : projects.filter(project => 
+        project.tags.some(tag => categoryMapping[selectedCategory]?.includes(tag))
+      );
 
   return (
     <div id="project" className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors py-20">
@@ -17,25 +35,49 @@ const Project = () => {
           variants={projectHeaderVariants}
           initial="hidden"
           animate="visible"
-          className="text-center mb-16"
+          className="text-center mb-8"
         >
           <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
             My <span className="text-sky-500">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-linear-to-r from-sky-500 to-blue-600 mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-            Explore my latest work showcasing creative solutions and technical expertise
-          </p>
+          <div className="w-20 h-1 bg-sky-500 mx-auto rounded-full"></div>
+        </motion.div>
+
+        {/* Filter Buttons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-3 mb-12"
+        >
+          {categories.map((category) => (
+            <motion.button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
+                selectedCategory === category
+                  ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/50'
+                  : 'bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-sky-50 dark:hover:bg-slate-700 border border-gray-200 dark:border-slate-700'
+              }`}
+            >
+              {category}
+            </motion.button>
+          ))}
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div 
-          variants={projectContainerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {projects.map((project) => (
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={selectedCategory}
+            variants={projectContainerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={projectCardVariants}
@@ -133,6 +175,21 @@ const Project = () => {
             </motion.div>
           ))}
         </motion.div>
+        </AnimatePresence>
+
+        {/* No Results Message */}
+        {filteredProjects.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-16"
+          >
+            <i className="ri-folder-open-line text-6xl text-gray-400 dark:text-gray-600 mb-4"></i>
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
+              No projects found in this category
+            </p>
+          </motion.div>
+        )}
 
         {/* View More Button */}
         <motion.div 
