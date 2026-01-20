@@ -16,14 +16,13 @@ const Project = () => {
         <motion.div 
           variants={projectHeaderVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
+          animate="visible"
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
             My <span className="text-sky-500">Projects</span>
           </h2>
-          <div className="w-24 h-1.5 bg-linear-to-r from-sky-500 to-blue-600 mx-auto rounded-full mb-6"></div>
+          <div className="w-20 h-1 bg-linear-to-r from-sky-500 to-blue-600 mx-auto rounded-full mb-6"></div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
             Explore my latest work showcasing creative solutions and technical expertise
           </p>
@@ -33,8 +32,7 @@ const Project = () => {
         <motion.div 
           variants={projectContainerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
+          animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {projects.map((project) => (
@@ -60,25 +58,16 @@ const Project = () => {
                   </div>
                   
                   {/* Uncomment when you have images */}
-                  {/* <Image
+                  <Image  
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  /> */}
+                  />
                   
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <motion.a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="btn btn-circle btn-primary btn-sm"
-                    >
-                      <i className="ri-external-link-line text-lg"></i>
-                    </motion.a>
+                    
                     <motion.a
                       href={project.githubUrl}
                       target="_blank"
@@ -94,8 +83,8 @@ const Project = () => {
                   {/* Featured Badge */}
                   {project.featured && (
                     <div className="absolute top-4 right-4">
-                      <span className="badge badge-warning gap-1 shadow-lg">
-                        <i className="ri-star-fill text-xs"></i>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-bold bg-sky-700 text-white rounded-full shadow-lg border-2 border-sky-900">
+                        <i className="ri-star-fill"></i>
                         Featured
                       </span>
                     </div>
@@ -128,26 +117,17 @@ const Project = () => {
                   <div className="divider my-3"></div>
 
                   {/* Action Links */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-start">
                     <a 
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-sky-500 transition-colors"
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-sky-500 hover:text-white bg-white dark:bg-slate-800 hover:bg-sky-500 dark:hover:bg-sky-500 border-2 border-sky-500 rounded-full transition-all duration-300 shadow-sm hover:shadow-md"
                     >
                       <i className="ri-github-line"></i>
                       View Code
                     </a>
-                    <a 
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm font-medium text-sky-500 hover:text-sky-600 transition-colors"
-                    >
-                      Live Demo
-                      <i className="ri-arrow-right-up-line"></i>
-                    </a>
-                  </div>
+                  </div>  
                 </div>
               </div>
             </motion.div>
@@ -158,8 +138,7 @@ const Project = () => {
         <motion.div 
           variants={buttonVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false }}
+          animate="visible"
           className="text-center mt-16"
         >
           <motion.a
