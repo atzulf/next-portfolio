@@ -14,8 +14,7 @@ const About = () => {
         
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
@@ -31,8 +30,7 @@ const About = () => {
             className="lg:col-span-3 order-2 lg:order-1"
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false }}
+            animate="visible"
           >
             <motion.h3 variants={itemVariants} className="text-2xl font-bold text-slate-800 dark:text-gray-100 mb-4">
               I&apos;m a Developer with a passion for <span className="text-sky-500">Design</span>.
@@ -69,8 +67,7 @@ const About = () => {
           <motion.div 
             className="lg:col-span-2 order-1 lg:order-2 flex justify-center"
             initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
 
@@ -89,8 +86,7 @@ const About = () => {
         <div className="flex justify-center">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white dark:bg-slate-800 p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100 dark:border-slate-700 text-center w-full max-w-5xl"
           >
