@@ -42,7 +42,7 @@ export const floatAnimation = {
 export const typewriterConfig = {
     words: [
         "UI UX Design Enthusiast",
-        "Android App Development",
+        "Android Development",
         "Front End Development",
     ],
     loop: true,
