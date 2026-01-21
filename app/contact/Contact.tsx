@@ -34,7 +34,7 @@ const Contact = () => {
     };
 
     return (
-        <div id="contact" className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors py-20">
+        <div id="contact" className="min-h-screen transition-colors py-20">
             <div className="container mx-auto px-4 md:px-16 lg:px-24 mt-10 max-w-8xl">
                 
                 {/* --- HEADER --- */}
