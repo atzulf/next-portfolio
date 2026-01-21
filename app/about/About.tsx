@@ -55,11 +55,10 @@ const About = () => {
 
             <motion.div variants={itemVariants}>
               <a 
-                href="/cv.pdf" 
-                download
+                href="/contact" 
                 className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-medium px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-sky-500/30"
               >
-                Download CV <i className="ri-download-line"></i>
+                Contact Me <i className="ri-mail-line"></i>
               </a>
             </motion.div>
           </motion.div>
