@@ -50,7 +50,7 @@ export const experiences: Experience[] = [
         id: 3,
         role: "Mobile Development Cohort",
         company: "Bangkit Academy (Google, Gojek, Tokopedia, Traveloka)",
-        companyUrl: "https://grow.google",
+        companyUrl: "https://grow.google/intl/id_id/bangkit/",
         period: "Sep 2024 - Jan 2025",
         location: "Remote",
         type: "Internship",
