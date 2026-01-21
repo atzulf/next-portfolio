@@ -6,8 +6,8 @@ import { experiences } from '@/lib/experience';
 import { containerVariants, itemVariants } from '@/lib/animations';
 
 const Experience = () => {
-    return (
-        <div id="experience" className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors py-20">
+    return ( //bg-slate-50 dark:bg-slate-900
+        <div id="experience" className="min-h-screen transition-colors py-20">
         <div className="container mx-auto px-4 md:px-16 lg:px-24 mt-10 max-w-8xl">
             
             {/* --- HEADER --- */}
@@ -150,7 +150,7 @@ const Experience = () => {
                 I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
             </p>
             <a 
-                href="/contact" 
+                href="mailto:atzulfikar45@gmail.com" 
                 className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-medium px-8 py-3.5 rounded-full transition-all shadow-lg hover:shadow-sky-500/30 hover:-translate-y-1 relative z-10"
             >
                 <i className="ri-mail-send-line text-lg"></i> Get In Touch
