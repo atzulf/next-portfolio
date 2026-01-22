@@ -55,10 +55,10 @@ const About = () => {
 
             <motion.div variants={itemVariants}>
               <a 
-                href="/contact" 
+                href="/experience" 
                 className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-medium px-6 py-3 rounded-full transition-all shadow-lg hover:shadow-sky-500/30"
               >
-                Contact Me <i className="ri-mail-line"></i>
+                View My Journey <i className="ri-mail-line"></i>
               </a>
             </motion.div>
           </motion.div>
