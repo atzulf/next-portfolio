@@ -211,6 +211,29 @@ const Project = () => {
           </motion.a>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="text-center mt-24 bg-white dark:bg-slate-800 p-8 md:p-12 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 relative overflow-hidden"
+        >
+          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-sky-500 via-blue-500 to-sky-500"></div>
+          
+          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4 relative z-10">
+            Interested in <span className="text-sky-500">Working</span> Together?
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto relative z-10">
+            I&apos;m always open to discussing new projects, creative ideas, or opportunities to collaborate.
+          </p>
+          <a 
+            href="/contact" 
+            className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-medium px-8 py-3.5 rounded-full transition-all shadow-lg hover:shadow-sky-500/30 hover:-translate-y-1 relative z-10"
+          >
+            <i className="ri-mail-send-line text-lg"></i> Get In Touch
+          </a>
+        </motion.div>
+
       </div>
     </div>
   );
