@@ -70,7 +70,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
 
-            <div className="relative w-full max-w-sm aspect-4/5 rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-all duration-300 border-4 border-white dark:border-slate-800">
+            <div className="relative w-full max-w-sm aspect-4/5 rounded-2xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-all duration-300 border-4 border-white dark:border-blue-500">
                 <Image 
                   fill
                   src="/mapotoo.jpeg" 
