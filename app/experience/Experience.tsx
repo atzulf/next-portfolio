@@ -150,10 +150,10 @@ const Experience = () => {
                 I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
             </p>
             <a 
-                href="mailto:atzulfikar45@gmail.com" 
+                href="/project" 
                 className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-medium px-8 py-3.5 rounded-full transition-all shadow-lg hover:shadow-sky-500/30 hover:-translate-y-1 relative z-10"
             >
-                <i className="ri-mail-send-line text-lg"></i> Get In Touch
+                <i className="ri-mail-send-line text-lg"></i> See What I&apos;ve Built
             </a>
             </motion.div>
 
