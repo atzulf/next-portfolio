@@ -1,11 +1,16 @@
 export const skills = [
     { name: "React / Next.js"},
-    { name: "Kotlin/Java"},
-    { name: "Laravel / PHP"},
-    { name: "Tailwind CSS"},
+    { name: "StelveKit JS"},
+    { name: "Vue JS"},
+    { name: "AngularJS"},
+    { name: "Retrieval Augmented Generation (RAG)"},
+    { name: "FastAPI / Python"},
     { name: "UI/UX Design (Figma)"},
-    { name: "SQL / Database"},
+    { name: "PHP / Laravel"},
+    { name: "Kotlin/Java"},
     { name: "Git / GitHub"},
+    { name: "Tailwind CSS"},
+    { name: "SQL / Database"},
 ];
 
 export const stats = [
