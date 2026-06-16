@@ -85,7 +85,8 @@ const Project = () => {
               variants={projectCardVariants}
               whileHover={{ y: -12, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="group"
+              className="group cursor-pointer"
+              onClick={() => setActiveProject(project)}
             >
               <div className="card bg-white dark:bg-slate-800 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden rounded-2xl border border-gray-100 dark:border-slate-700 h-full">
                 
@@ -119,6 +120,7 @@ const Project = () => {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       className="btn btn-circle btn-ghost btn-sm bg-white/20 backdrop-blur-sm text-white hover:bg-white/30"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <i className="ri-github-line text-lg"></i>
                     </motion.a>
@@ -163,7 +165,7 @@ const Project = () => {
                   {/* Action Links */}
                   <div className="flex items-center justify-start gap-3">
                     <button
-                      onClick={() => setActiveProject(project)}
+                      onClick={(e) => { e.stopPropagation(); setActiveProject(project); }}
                       className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-sky-500 hover:bg-sky-600 rounded-full transition-all duration-300 shadow-sm hover:shadow-md"
                     >
                       <i className="ri-information-line"></i>
@@ -174,6 +176,7 @@ const Project = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-sky-500 hover:text-white bg-white dark:bg-slate-800 hover:bg-sky-500 dark:hover:bg-sky-500 border-2 border-sky-500 rounded-full transition-all duration-300 shadow-sm hover:shadow-md"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <i className="ri-github-line"></i>
                       Code
