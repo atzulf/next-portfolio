@@ -15,6 +15,7 @@ export interface Project {
     title: string;
     description: string;
     image: string;
+    images?: string[];
     tags: string[];
     githubUrl: string;
     featured: boolean;
@@ -24,12 +25,125 @@ export interface Project {
 export const projects: Project[] = [
     {
         id: 1,
+        title: "EarlyTension App",
+        description: "Create Website Hypertension Risk Detection for daily health analysis and monitoring using Retrieval Augmented Generation (RAG), Gemini AI Model LLM, Huggingface for Model Embeddings, Langchain, FastAPI for backend and NextJS and Typescript for frontend",
+        image: "/rag.png",
+        images: ["/rag.png", "/rag2.png"],
+        tags: ["Nextjs", "FastAPI", "Typescript", "LLM", "RAG", "AI"],
+        githubUrl: "https://www.earlytension.my.id",
+        featured: true,
+        details: {
+            problem: "Hypertension is a non-communicable disease with high prevalence whose management is often delayed because health screening systems remain reactive, waiting for symptoms to appear, convensional chatbot can halucination and not accurate for health analysis",
+            solution: "Create an EarlyTension as Hypertension Risk Detection Website for daily health analysis and monitoring using Retrieval Augmented Generation (RAG) to help people to detect their hypertension risk and get the best treatment ",
+            features: ["Identify Hypertension Risk", "Get The Best Treatment", "Daily Health Analysis and Monitoring", "chatbot AI Monitoring","History Chatbot and Analysis","AI Analysis and Treatment Recommendations"],
+            faq: [
+                { question: "Why EarlyTension?", answer: "Because EarlyTension can help people to detect their hypertension risk and get the best treatment " },
+                { question: "What is the best treatment for hypertension?", answer: "The best treatment for hypertension is to consult with a doctor and get the best treatment" },
+                { question: "How to use EarlyTension?", answer: "You can use EarlyTension by visiting the website and following the instructions" },
+                { question: "Can EarlyTension diagnose hypertension?", answer: "EarlyTension can help you to detect your hypertension risk but it cannot diagnose hypertension. You should consult with a doctor for diagnosis" },
+                { question: "What is RAG?", answer: "Retrieval Augmented Generation (RAG) is a technique that combines the power of large language models (LLMs) with a retrieval system to provide more accurate and relevant responses." },
+                { question: "What is the best treatment for hypertension?", answer: "The best treatment for hypertension is to consult with a doctor and get the best treatment" }
+            ]
+        }
+    },
+    {
+        id: 2,
+        title: "Retro Arcade Daily Tracker",
+        description: "Creating a Retro Arcade Daily Tracker Website Retro 8-bit arcade habit tracker built with SvelteKit & TypeScript. Features: daily habits, streak combos, XP & leveling system, Pomodoro timer, quest calendar, and achievement system. Life is an RPG.",
+        image: "/retro.png",
+        tags: ["StelveKit", "TailwindCSS", "Typescript"],
+        githubUrl: "https://retro-arcade-daily-tracker.vercel.app/",
+        featured: true,
+        details: {
+            problem: "Users wanted to track their daily habits and stay motivated, but there was no platform that provided a fast, easy-to-use interface with complete features.",
+            solution: "Built a SvelteKit application using React and TailwindCSS for styling and Framer Motion for animation. It features a clean, intuitive interface that allows users to easily track their daily habits and stay motivated.",
+            features: ["Daily Habits", "Streak Combos", "XP & Leveling System", "Pomodoro Timer", "Quest Calendar", "Achievement System"],
+            faq: [
+                { question: "Why SvelteKit?", answer: "SvelteKit provides excellent performance through hybrid static & server rendering, and incredible developer experience." },
+                { question: "How are the animations handled?", answer: "All animations, including scroll reveals and hover effects, are powered by Framer Motion." }
+            ]
+        }
+    },
+    {
+        id: 3,
+        title: "ATS Tracking Website",
+        description: "Build an ATS Tracking Website using Angular CLI Framework and Python FastAPI for backend API.",
+        image: "/ats.png",
+        tags: ["AngularJS", "FastAPI", "API", "Fullstack App"],
+        githubUrl: "https://ats-dashboard-zoulv.vercel.app", 
+        featured: true,
+        details: {
+            problem: "ATS Tracking is a system for tracking job applications. Users can create an account and track their applications. They can also view their application history and progress.",
+            solution: "Built a fullstack app ATS Tracking Website by using Angular JS for frontend and Python FastAPI for backend API.",
+            features: ["Users can create an account","Users can view their application status","Users can view their application history and progress","Admin can track job applications"],
+            faq: [
+                { question: "Why Angular JS?", answer: "Angular JS provides excellent performance and incredible developer experience." },
+                { question: "How are the animations handled?", answer: "All animations, including scroll reveals and hover effects, are powered by Framer Motion." }
+            ]
+        }
+    },
+    {
+        id: 4,
+        title: "Baca Al-Qur'an App",
+        description: "Create Al-Qur'an App using NextJS and TailwindCSS for styling use API Qur'an Indonesia.",
+        image: "/quran.png",
+        tags: ["NextJS", "TailwindCSS", "API"],
+        githubUrl: "https://bacaqur-an.vercel.app",
+        featured: true,
+        details: {
+            problem: "Users wanted to read the Al-Qur'an online, but there was no platform that provided a fast, easy-to-use interface with complete features.",
+            solution: "Built a Next.js application using React and TailwindCSS for styling and Framer Motion for animation. It features a clean, intuitive interface that allows users to easily navigate through the Al-Qur'an and enjoy a seamless reading experience.",
+            features: ["Clean & Minimalist Design", "Smooth Animations", "Responsive Layouts"],
+            faq: [
+                { question: "Why NextJS?", answer: "NextJS provides excellent performance and incredible developer experience." },
+                { question: "How are the animations handled?", answer: "All animations, including scroll reveals and hover effects, are powered by Framer Motion." }
+            ]
+        }
+    },
+    {
+        id: 5,
+        title: "KuyFood App Delivering Design",
+        description: "Creating a UI/UX Design for an application that can fulfill the needs of Users for ordering food online.",
+        image: "/kuy.png",
+        tags: ["Figma", "UI/UX Design"],
+        githubUrl: "https://www.figma.com/proto/Z6iAysWgWq7RNfj2yWADiL/Kuy-Food?node-id=58-4131&p=f&viewport=-1080%2C-155%2C0.29&t=4RJDJh8ePGWbfJE7-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=58%3A4131&page-id=0%3A1",
+        featured: false,
+        details: {
+            problem: "Many people want to order food online, but there is no platform that provides a fast, easy-to-use interface with complete features.",
+            solution: "Creating a UI/UX Design for an application that can fulfill the needs of Users for ordering food online.",
+            features: ["Clean & Minimalist Design", "Smooth Animations", "High Fidelity"],
+            faq: [
+                { question: "Why use Figma?", answer: "Figma provides a fast, easy-to-use interface with complete features." },
+                { question: "How are the animations handled?", answer: "All animations, including scroll reveals and hover effects, are powered by Framer Motion." }
+            ]
+        }
+    },
+    {
+        id: 6,
+        title: "Muslimah Hijab Marketplace App Design",
+        description: "This project is a UI/UX Design for an application that can fulfill the needs of Users for ordering muslimah hijab online.",
+        image: "/red.png",
+        tags: ["Figma", "UI/UX Design"],
+        githubUrl: "https://www.figma.com/proto/5bCPUshLKbUti2cKDJ0QeG/Nourae-Veil?node-id=11-297&p=f&viewport=40%2C192%2C0.21&t=zzVdq3OSZ6FsN9P5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A250&page-id=0%3A1",
+        featured: false,
+        details: {
+            problem: "Muslimah hijab marketlace have a problem with their ui/ux design and need to redesign and fixing it.",
+            solution: "Redesign and Fixing UI/UX Design for muslimah hijab marketlace.",
+            features: ["Complete Design","Fixing the bugs","Improve User Experience","High Fidelity"],
+            faq: [
+                { question: "Why use Figma?", answer: "Figma provides a fast, easy-to-use interface with complete features." },
+                { question: "How are the animations handled?", answer: "All animations, including scroll reveals and hover effects, are powered by Framer Motion." }
+            ]
+        }
+    },
+    {
+        id: 7,
         title: "Mobile Apps Dicoding Event",
         description: "Create Kotlin Dicoding Event App using Retrofit as API caller for fundamental class submision collection",
         image: "/fundamental.png",
         tags: ["Kotlin", "Retrofit", "MVVM"],
         githubUrl: "https://github.com/atzulf/Event-App",
-        featured: true,
+        featured: false,
         details: {
             problem: "Participants often missed event updates because information was scattered across different platforms.",
             solution: "Built a centralized Android app that fetches and displays event schedules reliably from a unified API.",
@@ -40,13 +154,13 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 2,
+        id: 8,
         title: "Insect Animals Detection App",
         description: "Creating an Insect Detection Website using Streamlit as a web application assignment collection.",
         image: "/insectdetection.png",
         tags: ["Python", "Streamlit", "Machine Learning","Web App"],
         githubUrl: "https://github.com/atzulf/insectdetection",
-        featured: true,
+        featured: false,
         details: {
             problem: "Farmers and biology students struggle to rapidly identify local insect species in the field.",
             solution: "Developed an AI-powered web app using Streamlit to classify insects from uploaded images instantly.",
@@ -57,7 +171,7 @@ export const projects: Project[] = [
         }
     },  
     {
-        id: 3,
+        id: 9,
         title: "Portfolio Website",
         description: "Creating a Portfolio Website using NextJS 13 with TailwindCSS for styling and Framer Motion for animation.",
         image: "/portfolio.png",
@@ -75,7 +189,7 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 4,
+        id: 10,
         title: "Course Story App 2 Android",
         description: "Create an Android Intermediate 2 Course Story Application that has the addition of using the Google Maps API and infinity Scrolling using pagging 3.",
         image: "/intermediate2.png",
@@ -92,7 +206,7 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 5,
+        id: 11,
         title: "Notes App MERN",
         description: "Creating a Notes App using the MERN stack (MongoDB, Express, React, Node.js) for managing personal notes.",
         image: "/mern.png",
@@ -110,7 +224,7 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 6,
+        id: 12,
         title: "PersonaWay Personality App",
         description: "Creating Personality test applications using DISC and the use of Inter ML CC configuration to form Kotlin applications.",
         image: "/personaway.png",
@@ -127,7 +241,7 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 7,
+        id: 13,
         title: "UNYCraft UI Design",
         description: "Create a UNYCraft UI Design Figma for Decision Making Systems course project.",
         image: "/spkweb.png",
@@ -155,7 +269,7 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 8,
+        id: 14,
         title: "UNYCraft UI Website Design",
         description: "Create a UNYCraft UI Design Website Figma for software project management course",
         image: "/uiunycraft.png",
@@ -179,7 +293,7 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 9,
+        id: 15,
         title: "EcoFash App Design",
         description: "AI application with AR to support sustainable fashion by utilizing environmentally friendly product recycling with educational features, donations, IoT monitoring, and a marketplace.",
         image: "/ecofash.png",
@@ -207,7 +321,7 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 10,
+        id: 16,
         title: "OceanCue App Design",
         description: "Application with Internet of Things (IoT)-based smart marine navigation and exploration features that monitors oceanographic data such as sea water temperature, pH, and dissolved oxygen (DO) levels in real time",
         image: "/oceancue.png",
@@ -231,12 +345,12 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 11,
+        id: 17,
         title: "MindGarden App",
         description: "Creating a simple chat application using ReactJS and Firebase for real-time messaging features.",
         image: "/mindgarden.png",
         tags: ["Kotlin", "Firebase", "Machine Learning"],
-        githubUrl: "https://github.com/MindGardenApp",
+        githubUrl: "https://github.com/atzulf/MindGardenApp",
         featured: true,
         details: {
             problem: "Users wanted a real-time, engaging chat platform focused on mental wellness and community support.",
@@ -248,7 +362,7 @@ export const projects: Project[] = [
         }
     },
     {
-        id: 12,
+        id: 18,
         title: "Admin Dashboard Filament",
         description: "Creating a Admin Dashboard using Filament PHP Laravel for simple project management.",
         image: "/filament.png",
