@@ -83,15 +83,19 @@ const ModalImageCarousel = ({ project }: { project: ProjectType }) => {
           />
         </motion.div>
       </AnimatePresence>
-      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors z-10">
-        <i className="ri-arrow-left-s-line text-2xl"></i>
+      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/95 dark:bg-slate-800/95 text-slate-900 dark:text-white hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 rounded-full flex items-center justify-center transition-all z-10 shadow-xl border border-gray-100 dark:border-slate-600 backdrop-blur-sm group">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
       </button>
-      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors z-10">
-        <i className="ri-arrow-right-s-line text-2xl"></i>
+      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/95 dark:bg-slate-800/95 text-slate-900 dark:text-white hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 rounded-full flex items-center justify-center transition-all z-10 shadow-xl border border-gray-100 dark:border-slate-600 backdrop-blur-sm group">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2.5 z-10 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full shadow-lg">
         {images.map((_, i) => (
-          <div key={i} className={`w-2 h-2 rounded-full transition-colors ${i === index ? 'bg-white' : 'bg-white/50'}`} />
+          <div key={i} className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${i === index ? 'bg-white scale-125' : 'bg-white/40 hover:bg-white/70'}`} />
         ))}
       </div>
     </>
