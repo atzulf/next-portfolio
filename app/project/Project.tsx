@@ -1,10 +1,102 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { projects, type Project as ProjectType } from '@/lib/project';
 import { projectContainerVariants, projectCardVariants, projectHeaderVariants, buttonVariants } from '@/lib/animations';
+
+const CardImageCarousel = ({ project }: { project: ProjectType }) => {
+  const images = project.images && project.images.length > 0 ? project.images : [project.image];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={index}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.8 }}
+        className="absolute inset-0"
+      >
+        <Image
+          src={images[index]}
+          alt={project.title}
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+const ModalImageCarousel = ({ project }: { project: ProjectType }) => {
+  const images = project.images && project.images.length > 0 ? project.images : [project.image];
+  const [index, setIndex] = useState(0);
+
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  if (images.length <= 1) {
+    return (
+      <Image 
+        src={images[0]} 
+        alt={project.title} 
+        fill 
+        className="object-cover hover:scale-105 transition-transform duration-700" 
+      />
+    );
+  }
+
+  return (
+    <>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0"
+        >
+          <Image 
+            src={images[index]} 
+            alt={`${project.title} - image ${index + 1}`} 
+            fill 
+            className="object-cover hover:scale-105 transition-transform duration-700" 
+          />
+        </motion.div>
+      </AnimatePresence>
+      <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors z-10">
+        <i className="ri-arrow-left-s-line text-2xl"></i>
+      </button>
+      <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors z-10">
+        <i className="ri-arrow-right-s-line text-2xl"></i>
+      </button>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {images.map((_, i) => (
+          <div key={i} className={`w-2 h-2 rounded-full transition-colors ${i === index ? 'bg-white' : 'bg-white/50'}`} />
+        ))}
+      </div>
+    </>
+  );
+};
 
 const Project = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -12,12 +104,12 @@ const Project = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   // Define main categories
-  const categories = ['All', 'Mobile Dev', 'Website Dev', 'UI UX'];
+  const categories = ['All', 'Website Dev','Mobile Dev', 'UI UX'];
 
   // Define category mappings
   const categoryMapping: Record<string, string[]> = {
+    'Website Dev': ['TypeScript', 'NextJS', 'React', 'Node.js', 'MongoDB', 'Express', 'TailwindCSS', 'Framer Motion', 'Python', 'Streamlit', 'Web App', 'PHP', 'Laravel', 'Filament', 'RAG', 'AI', 'API', 'LLM', 'Langchain', 'SvelteKit', 'AngularJS', 'Fullstack App', 'FastAPI'],
     'Mobile Dev': ['Kotlin', 'Firebase', 'MVVM', 'Retrofit', 'Google Maps', 'Paging 3'],
-    'Website Dev': ['TypeScript', 'NextJS', 'React', 'Node.js', 'MongoDB', 'Express', 'TailwindCSS', 'Framer Motion', 'Python', 'Streamlit', 'Web App', 'PHP', 'Laravel', 'Filament'],
     'UI UX': ['Figma', 'UI Design', 'UX Design']
   };
 
@@ -102,13 +194,8 @@ const Project = () => {
                     </div>
                   </div>
                   
-                  {/* Uncomment when you have images */}
-                  <Image  
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
+                  {/* Image Carousel */}
+                  <CardImageCarousel project={project} />
                   
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
@@ -292,12 +379,7 @@ const Project = () => {
                   {/* Overview Section */}
                   <div className="flex flex-col gap-8">
                     <div className="relative w-full aspect-video md:aspect-[16/7] rounded-3xl overflow-hidden border border-gray-100 dark:border-slate-700 bg-sky-50 dark:bg-slate-900 flex items-center justify-center shadow-lg">
-                      <Image 
-                        src={activeProject.image} 
-                        alt={activeProject.title} 
-                        fill 
-                        className="object-cover hover:scale-105 transition-transform duration-700" 
-                      />
+                      <ModalImageCarousel project={activeProject} />
                     </div>
                     <div className="space-y-6">
                       {/* Overview is always shown */}
