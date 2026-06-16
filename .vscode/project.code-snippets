@@ -1,0 +1,32 @@
+{
+  "Add Portfolio Project": {
+    "scope": "typescript",
+    "prefix": "newproject",
+    "body": [
+      "{",
+      "\tid: ${1:99},",
+      "\ttitle: \"${2:Project Title}\",",
+      "\tdescription: \"${3:Brief description of the project}\",",
+      "\timage: \"/${4:image.png}\",",
+      "\ttags: [\"${5:Tag1}\", \"${6:Tag2}\"],",
+      "\tgithubUrl: \"${7:https://github.com/atzulf/...}\",",
+      "\tfeatured: ${8:false},",
+      "\tdetails: {",
+      "\t\tproblem: \"${9:What was the main problem?}\",",
+      "\t\tsolution: \"${10:How did you solve it?}\",",
+      "\t\tfeatures: [",
+      "\t\t\t\"${11:Feature 1}\",",
+      "\t\t\t\"${12:Feature 2}\"",
+      "\t\t],",
+      "\t\tfaq: [",
+      "\t\t\t{",
+      "\t\t\t\tquestion: \"${13:Question 1}\",",
+      "\t\t\t\tanswer: \"${14:Answer 1}\"",
+      "\t\t\t}",
+      "\t\t]",
+      "\t}",
+      "},$0"
+    ],
+    "description": "Insert a new full project object template into the portfolio"
+  }
+}
