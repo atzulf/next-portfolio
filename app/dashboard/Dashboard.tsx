@@ -51,7 +51,7 @@ const Dashboard = () => {
               variants={itemVariants}
               className="text-base text-gray-600 dark:text-gray-300 mb-8 text-justify leading-relaxed"
             >
-              As a passionate about UI UX Design, Frontend Web Development and Mobile Development, I focus on crafting innovative and impactful solutions for the digital world.
+              As a passionate about Frontend Web Development, UI UX Design and Mobile Development, I focus on crafting innovative and impactful solutions for the digital world.
             </motion.p>
 
             <motion.div variants={itemVariants}>
