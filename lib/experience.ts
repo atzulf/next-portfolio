@@ -17,7 +17,7 @@ export const experiences: Experience[] = [
         role: "Software Developer Intern",
         company: "EQUAL System (PT. Kreasi Sinergi Perkasa)",
         companyUrl: "https://equalsystem.io", 
-        period: "Nov 2025 - Present",
+        period: "Nov 2025 - Feb 2026",
         location: "Yogyakarta, Indonesia",
         type: "Internship",
         description: [
@@ -27,7 +27,7 @@ export const experiences: Experience[] = [
             "Applying clean code practices and version control using Git in daily workflows."
         ],
         skills: ["PHP", "Laravel", "JavaScript", "MySQL", "Git", "Teamwork"],
-        current: true
+        current: false
     },
     {
         id: 2,
