@@ -3,11 +3,13 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { projects } from '@/lib/project';
+import { projects, type Project as ProjectType } from '@/lib/project';
 import { projectContainerVariants, projectCardVariants, projectHeaderVariants, buttonVariants } from '@/lib/animations';
 
 const Project = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [activeProject, setActiveProject] = useState<ProjectType | null>(null);
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   // Define main categories
   const categories = ['All', 'Mobile Dev', 'Website Dev', 'UI UX'];
@@ -159,7 +161,14 @@ const Project = () => {
                   <div className="divider my-3"></div>
 
                   {/* Action Links */}
-                  <div className="flex items-center justify-start">
+                  <div className="flex items-center justify-start gap-3">
+                    <button
+                      onClick={() => setActiveProject(project)}
+                      className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-sky-500 hover:bg-sky-600 rounded-full transition-all duration-300 shadow-sm hover:shadow-md"
+                    >
+                      <i className="ri-information-line"></i>
+                      Details
+                    </button>
                     <a 
                       href={project.githubUrl}
                       target="_blank"
@@ -167,7 +176,7 @@ const Project = () => {
                       className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-sky-500 hover:text-white bg-white dark:bg-slate-800 hover:bg-sky-500 dark:hover:bg-sky-500 border-2 border-sky-500 rounded-full transition-all duration-300 shadow-sm hover:shadow-md"
                     >
                       <i className="ri-github-line"></i>
-                      View Code
+                      Code
                     </a>
                   </div>  
                 </div>
@@ -233,6 +242,162 @@ const Project = () => {
             <i className="ri-mail-send-line text-lg"></i> Get In Touch
           </a>
         </motion.div>
+
+        {/* Modal Popup for Details */}
+        <AnimatePresence>
+          {activeProject && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+              onClick={() => setActiveProject(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-white dark:bg-slate-800 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border border-gray-100 dark:border-slate-700 scrollbar-hide"
+              >
+                {/* Modal Header */}
+                <div className="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-700">
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{activeProject.title}</h3>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {activeProject.tags.map((tag, idx) => (
+                        <span key={idx} className="px-2.5 py-0.5 text-xs font-medium bg-sky-50 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400 rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setActiveProject(null)}
+                    className="w-10 h-10 bg-rose-500 text-white hover:bg-rose-600 rounded-full flex items-center justify-center transition-all flex-shrink-0 ml-4 shadow-md hover:shadow-lg"
+                    aria-label="Close"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                      <path fillRule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Modal Content */}
+                <div className="p-6 md:p-8 space-y-8">
+                  
+                  {/* Overview Section */}
+                  <div className="flex flex-col gap-8">
+                    <div className="relative w-full aspect-video md:aspect-[16/7] rounded-3xl overflow-hidden border border-gray-100 dark:border-slate-700 bg-sky-50 dark:bg-slate-900 flex items-center justify-center shadow-lg">
+                      <Image 
+                        src={activeProject.image} 
+                        alt={activeProject.title} 
+                        fill 
+                        className="object-cover hover:scale-105 transition-transform duration-700" 
+                      />
+                    </div>
+                    <div className="space-y-6">
+                      {/* Overview is always shown */}
+                      <div>
+                        <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                          <i className="ri-information-line text-sky-500"></i> Overview
+                        </h4>
+                        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{activeProject.description}</p>
+                      </div>
+
+                      {/* Problem and Solution shown if they exist */}
+                      {activeProject.details?.problem && (
+                        <>
+                          <div>
+                            <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                              <i className="ri-error-warning-line text-amber-500"></i> The Problem
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{activeProject.details.problem}</p>
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                              <i className="ri-lightbulb-flash-line text-sky-500"></i> The Solution
+                            </h4>
+                            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{activeProject.details.solution}</p>
+                          </div>
+                        </>
+                      )}
+                      
+                      {/* Action Button */}
+                      <div className="pt-4 border-t border-gray-100 dark:border-slate-700">
+                        <a 
+                          href={activeProject.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-sky-500/30"
+                        >
+                          <i className="ri-external-link-line"></i> View Source / Demo
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* FAQ / Features Section */}
+                  {(activeProject.details?.faq || activeProject.details?.features) && (
+                    <div className="mt-12">
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-6 text-center">
+                        Project Details & FAQ
+                      </h4>
+                      
+                      <div className="space-y-4 max-w-3xl mx-auto">
+                        {activeProject.details?.faq?.map((faqItem, idx) => (
+                          <div 
+                            key={idx} 
+                            className="border border-gray-100 dark:border-slate-700 rounded-2xl overflow-hidden bg-white dark:bg-slate-800/50"
+                          >
+                            <button
+                              onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
+                              className="w-full flex items-center justify-between p-5 text-left transition-colors hover:bg-slate-50 dark:hover:bg-slate-700/50"
+                            >
+                              <span className="font-medium text-slate-900 dark:text-white">{faqItem.question}</span>
+                              <i className={`ri-arrow-down-s-line text-xl transition-transform duration-300 ${activeFaq === idx ? 'rotate-180 text-sky-500' : 'text-gray-400'}`}></i>
+                            </button>
+                            <AnimatePresence>
+                              {activeFaq === idx && (
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="p-5 pt-0 text-sm text-gray-600 dark:text-gray-400 leading-relaxed border-t border-gray-50 dark:border-slate-700">
+                                    {faqItem.answer}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        ))}
+
+                        {activeProject.details?.features && activeProject.details.faq?.length === 0 && (
+                          <div className="p-6 bg-sky-50 dark:bg-sky-900/10 rounded-2xl border border-sky-100 dark:border-sky-900/30">
+                            <h5 className="font-bold text-sky-900 dark:text-sky-100 mb-4 flex items-center gap-2">
+                              <i className="ri-star-line text-sky-500"></i> Key Highlights
+                            </h5>
+                            <ul className="space-y-3">
+                              {activeProject.details.features.map((feature, fIdx) => (
+                                <li key={fIdx} className="flex items-start gap-3 text-gray-600 dark:text-gray-400 text-sm">
+                                  <i className="ri-checkbox-circle-fill text-sky-500 mt-0.5"></i>
+                                  {feature}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
     </div>
