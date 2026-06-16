@@ -71,7 +71,7 @@ export const projects: Project[] = [
         image: "/ats.png",
         tags: ["AngularJS", "FastAPI", "API", "Fullstack App"],
         githubUrl: "https://ats-dashboard-zoulv.vercel.app", 
-        featured: false,
+        featured: true,
         details: {
             problem: "ATS Tracking is a system for tracking job applications. Users can create an account and track their applications. They can also view their application history and progress.",
             solution: "Built a fullstack app ATS Tracking Website by using Angular JS for frontend and Python FastAPI for backend API.",
