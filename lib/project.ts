@@ -71,7 +71,7 @@ export const projects: Project[] = [
         image: "/ats.png",
         tags: ["AngularJS", "FastAPI", "API", "Fullstack App"],
         githubUrl: "https://ats-dashboard-zoulv.vercel.app", 
-        featured: true,
+        featured: false,
         details: {
             problem: "ATS Tracking is a system for tracking job applications. Users can create an account and track their applications. They can also view their application history and progress.",
             solution: "Built a fullstack app ATS Tracking Website by using Angular JS for frontend and Python FastAPI for backend API.",
@@ -107,7 +107,7 @@ export const projects: Project[] = [
         image: "/kuy.png",
         tags: ["Figma", "UI/UX Design"],
         githubUrl: "https://www.figma.com/proto/Z6iAysWgWq7RNfj2yWADiL/Kuy-Food?node-id=58-4131&p=f&viewport=-1080%2C-155%2C0.29&t=4RJDJh8ePGWbfJE7-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=58%3A4131&page-id=0%3A1",
-        featured: false,
+        featured: true,
         details: {
             problem: "Many people want to order food online, but there is no platform that provides a fast, easy-to-use interface with complete features.",
             solution: "Creating a UI/UX Design for an application that can fulfill the needs of Users for ordering food online.",
@@ -125,7 +125,7 @@ export const projects: Project[] = [
         image: "/red.png",
         tags: ["Figma", "UI/UX Design"],
         githubUrl: "https://www.figma.com/proto/5bCPUshLKbUti2cKDJ0QeG/Nourae-Veil?node-id=11-297&p=f&viewport=40%2C192%2C0.21&t=zzVdq3OSZ6FsN9P5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A250&page-id=0%3A1",
-        featured: false,
+        featured: true,
         details: {
             problem: "Muslimah hijab marketlace have a problem with their ui/ux design and need to redesign and fixing it.",
             solution: "Redesign and Fixing UI/UX Design for muslimah hijab marketlace.",
@@ -177,7 +177,7 @@ export const projects: Project[] = [
         image: "/portfolio.png",
         tags: ["TypeScript", "NextJS", "Framer Motion", "TailwindCSS"],
         githubUrl: "https://github.com/atzulf/next-portfolio",
-        featured: true,
+        featured: false,
         details: {
             problem: "Needed a performant and highly interactive platform to showcase development and design projects.",
             solution: "Designed and developed a Next.js application leveraging Server Components and Framer Motion for a smooth UX.",
@@ -212,7 +212,7 @@ export const projects: Project[] = [
         image: "/mern.png",
         tags: ["MongoDB", "Express", "React", "Node.js"],
         githubUrl: "https://github.com/atzulf/mern",
-        featured: true,
+        featured: false,
         details: {
             problem: "Students and professionals needed a simple, fast, and reliable way to capture, organize, and access their notes across different devices.",
             solution: "Built a full-stack MERN application that allows users to create, edit, search, and delete notes with real-time synchronization and secure authentication.",
@@ -327,7 +327,7 @@ export const projects: Project[] = [
         image: "/oceancue.png",
         tags: ["Figma", "UI Design", "UX Design"],
         githubUrl: "https://www.figma.com/design/JEzWmdeiUYddhxhdbVLGFg/OceanCue?node-id=0-1&t=axRTrNVK4kyht7S6-1",
-        featured: false,
+        featured: true,
         details: {
             problem: "Marine researchers and sailors need a reliable, user-friendly mobile interface to monitor complex real-time IoT oceanographic data.",
             solution: "Created OceanCue, featuring highly legible data dashboards, real-time alerts, and interactive map visualizations for marine navigation.",
