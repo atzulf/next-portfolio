@@ -51,8 +51,8 @@ export const projects: Project[] = [
         title: "Retro Arcade Daily Tracker",
         description: "Creating a Retro Arcade Daily Tracker Website Retro 8-bit arcade habit tracker built with SvelteKit & TypeScript. Features: daily habits, streak combos, XP & leveling system, Pomodoro timer, quest calendar, and achievement system. Life is an RPG.",
         image: "/retro.png",
-        tags: ["StelveKit", "TailwindCSS", "Typescript"],
-        githubUrl: "https://retro-arcade-daily-tracker.vercel.app/",
+        tags: ["SvelteKit", "TailwindCSS", "Typescript"],
+        githubUrl: "https://retro-arcade-tracker.vercel.app",
         featured: true,
         details: {
             problem: "Users wanted to track their daily habits and stay motivated, but there was no platform that provided a fast, easy-to-use interface with complete features.",
