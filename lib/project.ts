@@ -350,7 +350,7 @@ export const projects: Project[] = [
         description: "Creating a simple chat application using ReactJS and Firebase for real-time messaging features.",
         image: "/mindgarden.png",
         tags: ["Kotlin", "Firebase", "Machine Learning"],
-        githubUrl: "https://github.com/atzulf/MindGardenApp",
+        githubUrl: "https://github.com/MindGardenApp",
         featured: true,
         details: {
             problem: "Users wanted a real-time, engaging chat platform focused on mental wellness and community support.",
